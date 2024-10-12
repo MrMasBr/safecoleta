@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "247c9153-ab18-4a0e-9df5-f51727336ecd",
+		"name": "SafeColeta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24490785"
+	},
+	"item": [
+		{
+			"name": "Agendamento Coleta",
+			"item": [
+				{
+					"name": "Cadastro de Agendamento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"caminhaoId\":1,\r\n    \"tipoResiduos\": \"Comum\",\r\n    \"dataEnvio\": \"2024-06-22\",\r\n    \"horario\": \"14:30\",\r\n    \"endereco\": \"Av. Costa Eduardo, 267 SAO PAULO-SP\",\r\n    \"confirmado\": true\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/agendamento/cadastro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agendamento",
+								"cadastro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Agendamento por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/agendamento/id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agendamento",
+								"id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Agendamentos por Pagina",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/agendamento/agendamentos?sort=id&size=3&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agendamento",
+								"agendamentos"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "id"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Agendamento por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/agendamento/id/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agendamento",
+								"id",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar um Agendamento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoResiduos\": \"-TESTE-ATT\",\r\n    \"dataAgendamento\": \"2024-06-01\",\r\n    \"horario\": \"14:00\",\r\n    \"endereco\": \"Nova Rua, 123TESTE\",\r\n    \"confirmado\": true,\r\n    \"caminhaoId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/agendamento/id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agendamento",
+								"id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Caminhão",
+			"item": [
+				{
+					"name": "Cadastro de Caminhão",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"placa\": \"DUR4534\",\r\n  \"motorista\": \"Lucas Marques\",\r\n  \"status\": \"ativo\",\r\n  \"ultimaAtualizacao\": \"2024-05-23T12:32:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/caminhao/cadastro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"caminhao",
+								"cadastro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Caminhão por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/caminhao/id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"caminhao",
+								"id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Morador",
+			"item": [
+				{
+					"name": "Cadastro de Morador",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"nome\":\"Ana Maria\",\r\n\"email\":\"ana.maria@ggmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/morador/cadastro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"morador",
+								"cadastro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Morador",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/morador/id/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"morador",
+								"id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notificação",
+			"item": [
+				{
+					"name": "Cadastro de Notificação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"moradorId\":2,\r\n\"mensagem\":\"Boa tarde, prezado(a) morador(a). Agradecemos por sua paciência, sua solicitação foi confirmada. A coleta será feita no dia 24/05/2024 às 14:00 horas. Qualquer dúvida entre em contato com nossa central. Obrigado por contar conosco!\",\r\n\"dataNotificacao\":\"2024-05-24T14:30:00\",\r\n\"lida\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/notificacao/cadastro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"notificacao",
+								"cadastro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Notificação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzYWZlQ29sZXRhIiwic3ViIjoiam9hby5kZXYzQGdtYWlsLmNvbSIsImV4cCI6MTcxNjY3NjI1Mn0.LJdFHXXXZBEh9UMD18jIVLOSGyN7LOB8-HMKVPGbhQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/notificacao/id/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"notificacao",
+								"id",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticação/Criar Usuario",
+			"item": [
+				{
+					"name": "Cadastrar Usuario",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"nome\":\"João\",\r\n\"email\":\"joao.dev3@gmail.com\",\r\n\"senha\":\"123456\",\r\n\"papelUsuario\":\"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login / Gerar Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"email\":\"joao.dev3@gmail.com\",\r\n\"senha\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "123456",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "vinicius",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
