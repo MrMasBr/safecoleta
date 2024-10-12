@@ -22,37 +22,35 @@ SafeColeta é um serviço RESTful para gerenciamento de caminhões de coleta de 
 
 ### Compilando a Aplicação
 
-Antes de construir a imagem Docker, compile a aplicação para gerar o arquivo JAR. No diretório raiz do projeto (`safecoleta`), execute:
+1. Faça login no Docker Hub:
+   ```sh
+   docker login
+   ```
 
-```sh
-./mvnw clean package
-```
+2. Puxe a imagem do Docker Hub:
+   ```sh
+   docker pull amandasacchi22k736/app:welcome-21-alpine
+   ```
 
-### Construindo a Imagem Docker
+3. Crie a rede Docker (se ainda não existir):
+   ```sh
+   docker network create safecoleta-network
+   ```
 
-No diretório raiz do projeto (`safecoleta`), execute o comando para construir a imagem Docker:
+4. Inicie o contêiner Oracle XE na rede safecoleta-network:
+   ```sh
+   docker run --name oracle-xe --network safecoleta-network -d -p 1521:1521 -p 5500:5500 gvenzl/oracle-xe
+   ```
 
-```sh
-docker build -t safecoleta .
-```
-
-### Executando a Aplicação com Docker Compose
-
-Para iniciar os serviços definidos no `docker-compose.yml`, use:
-
-```sh
-docker-compose up
-```
-
-Isso iniciará tanto a aplicação Spring Boot quanto o banco de dados PostgreSQL em contêineres Docker.
-
-### Parando os Contêineres
-
-Para parar e remover os contêineres, use:
-
-```sh
-docker-compose down
-```
+5. Inicie a aplicação na rede safecoleta-network:
+   ```sh
+   docker run --name safecoleta-app --network safecoleta-network -d -p 8080:8080 \
+   -e SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle-xe:1521/xepdb1 \
+   -e SPRING_DATASOURCE_USERNAME=system \
+   -e SPRING_DATASOURCE_PASSWORD=senha_segura \
+   -e SPRING_DATASOURCE_DRIVER-CLASS-NAME=oracle.jdbc.OracleDriver \
+   amandasacchi22k736/app:welcome-21-alpine
+   ```
 
 ## Configurações do Banco de Dados
 
